@@ -1,0 +1,1186 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>GOLDX PRO – MT5 XAUUSD Trading Bot</title>
+
+<meta name="description"
+content="GOLDX PRO – MT5 XAUUSD Trading Bot with automated trade management and risk-management features.">
+
+<style>
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+html{
+    scroll-behavior:smooth;
+}
+
+body{
+    font-family:Arial,Helvetica,sans-serif;
+    background:#080909;
+    color:#f5f5f5;
+    line-height:1.6;
+}
+
+.container{
+    width:90%;
+    max-width:1150px;
+    margin:auto;
+}
+
+/* NAVIGATION */
+
+nav{
+    position:sticky;
+    top:0;
+    z-index:1000;
+    background:rgba(8,9,9,.96);
+    border-bottom:1px solid #292929;
+    backdrop-filter:blur(10px);
+}
+
+.navbar{
+    min-height:72px;
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    gap:20px;
+}
+
+.logo{
+    color:#f5be2d;
+    font-size:24px;
+    font-weight:800;
+    letter-spacing:1px;
+}
+
+.nav-links{
+    display:flex;
+    gap:25px;
+}
+
+.nav-links a{
+    color:#ddd;
+    text-decoration:none;
+    font-size:14px;
+}
+
+.nav-links a:hover{
+    color:#f5be2d;
+}
+
+.buy-small{
+    background:#f5be2d;
+    color:#080909;
+    padding:11px 18px;
+    border-radius:8px;
+    text-decoration:none;
+    font-weight:700;
+}
+
+/* HERO */
+
+.hero{
+    padding:75px 0 55px;
+    text-align:center;
+    background:
+    radial-gradient(
+        circle at 50% 0%,
+        rgba(245,190,45,.18),
+        transparent 48%
+    );
+}
+
+.badge{
+    display:inline-block;
+    border:1px solid #f5be2d;
+    color:#f5be2d;
+    padding:7px 14px;
+    border-radius:30px;
+    font-size:12px;
+    font-weight:700;
+    margin-bottom:20px;
+}
+
+.hero h1{
+    font-size:clamp(42px,8vw,78px);
+    line-height:1;
+    margin-bottom:18px;
+}
+
+.gold{
+    color:#f5be2d;
+}
+
+.hero p{
+    max-width:720px;
+    margin:0 auto 30px;
+    color:#b9b9b9;
+    font-size:18px;
+}
+
+.buttons{
+    display:flex;
+    justify-content:center;
+    gap:15px;
+    flex-wrap:wrap;
+}
+
+.btn{
+    display:inline-block;
+    padding:15px 25px;
+    border-radius:9px;
+    text-decoration:none;
+    font-weight:700;
+    transition:.2s;
+}
+
+.btn-gold{
+    background:#f5be2d;
+    color:#080909;
+}
+
+.btn-dark{
+    border:1px solid #555;
+    color:white;
+}
+
+.btn:hover{
+    transform:translateY(-2px);
+}
+
+/* POWER IMAGE */
+
+.hero-image{
+    width:100%;
+    max-width:1100px;
+    margin:45px auto 0;
+    border-radius:18px;
+    overflow:hidden;
+    border:1px solid #f5be2d;
+    box-shadow:0 0 35px rgba(245,190,45,.20);
+}
+
+.hero-image img{
+    width:100%;
+    height:auto;
+    display:block;
+}
+
+/* OFFER STRIP */
+
+.offer-strip{
+    margin:35px auto 0;
+    max-width:760px;
+    padding:18px 20px;
+    border:1px solid #f5be2d;
+    border-radius:14px;
+    background:
+    linear-gradient(
+        90deg,
+        #16120a,
+        #211b0b,
+        #16120a
+    );
+}
+
+.offer-label{
+    color:#f5be2d;
+    font-size:12px;
+    font-weight:800;
+    letter-spacing:2px;
+    text-transform:uppercase;
+}
+
+.old-price{
+    color:#777;
+    text-decoration:line-through;
+    font-size:24px;
+    margin-right:10px;
+}
+
+.new-price{
+    color:#f5be2d;
+    font-size:36px;
+    font-weight:900;
+}
+
+.offer-note{
+    color:#aaa;
+    font-size:13px;
+}
+
+/* SECTION */
+
+.section{
+    padding:75px 0;
+}
+
+.section-title{
+    text-align:center;
+    margin-bottom:40px;
+}
+
+.section-title h2{
+    font-size:38px;
+    margin-bottom:8px;
+}
+
+.section-title p{
+    color:#999;
+}
+
+/* DEMO */
+
+.video-box{
+    max-width:900px;
+    margin:auto;
+    aspect-ratio:16/9;
+    background:#111;
+    border:1px solid #444;
+    border-radius:15px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    text-align:center;
+}
+
+.video-box span{
+    color:#f5be2d;
+    font-size:22px;
+}
+
+/* FEATURES */
+
+.features{
+    display:grid;
+    grid-template-columns:
+    repeat(4,1fr);
+    gap:18px;
+}
+
+.card{
+    background:#111313;
+    border:1px solid #292929;
+    border-radius:14px;
+    padding:25px;
+    text-align:center;
+}
+
+.card .icon{
+    font-size:30px;
+    margin-bottom:10px;
+}
+
+.card h3{
+    margin-bottom:8px;
+}
+
+.card p{
+    color:#999;
+    font-size:14px;
+}
+
+/* PLATFORM */
+
+.compat{
+    background:#101211;
+    border:1px solid #2b2b2b;
+    border-radius:18px;
+    padding:35px;
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:20px;
+}
+
+.compat-box{
+    background:#080909;
+    border:1px solid #333;
+    border-radius:12px;
+    padding:25px;
+}
+
+.compat-box h3{
+    color:#f5be2d;
+    margin-bottom:8px;
+}
+
+/* HOW IT WORKS */
+
+.steps{
+    display:grid;
+    grid-template-columns:
+    repeat(4,1fr);
+    gap:15px;
+}
+
+.step{
+    text-align:center;
+    padding:25px 15px;
+}
+
+.number{
+    width:45px;
+    height:45px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    margin:0 auto 15px;
+    background:#f5be2d;
+    color:#080909;
+    border-radius:50%;
+    font-weight:800;
+}
+
+/* PRICE */
+
+.price-box{
+    max-width:560px;
+    margin:auto;
+    text-align:center;
+    background:
+    linear-gradient(
+        145deg,
+        #17150d,
+        #0e0f0f
+    );
+    border:1px solid #f5be2d;
+    border-radius:20px;
+    padding:45px 25px;
+    box-shadow:
+    0 0 30px rgba(245,190,45,.10);
+}
+
+.launch{
+    color:#f5be2d;
+    font-size:13px;
+    font-weight:800;
+    letter-spacing:2px;
+}
+
+.regular-price{
+    color:#777;
+    text-decoration:line-through;
+    font-size:25px;
+    margin-top:10px;
+}
+
+.price{
+    color:#f5be2d;
+    font-size:60px;
+    font-weight:900;
+    line-height:1.1;
+}
+
+.launch-price{
+    display:inline-block;
+    margin:8px 0 16px;
+    padding:6px 12px;
+    border-radius:20px;
+    background:#2a210d;
+    color:#f5be2d;
+    font-size:12px;
+    font-weight:800;
+}
+
+.price-box ul{
+    list-style:none;
+    margin:20px 0;
+    color:#bbb;
+}
+
+.price-box li{
+    margin:8px 0;
+}
+
+/* FAQ */
+
+.faq{
+    max-width:850px;
+    margin:auto;
+}
+
+details{
+    background:#111313;
+    border:1px solid #292929;
+    border-radius:10px;
+    margin-bottom:10px;
+    padding:18px;
+}
+
+summary{
+    cursor:pointer;
+    font-weight:700;
+}
+
+details p{
+    color:#aaa;
+    margin-top:12px;
+}
+
+/* RISK */
+
+.risk{
+    background:#15130d;
+    border-left:4px solid #f5be2d;
+    padding:22px;
+    border-radius:8px;
+    color:#bbb;
+}
+
+/* FOOTER */
+
+footer{
+    border-top:1px solid #292929;
+    padding:35px 0;
+    text-align:center;
+    color:#777;
+    font-size:13px;
+}
+
+/* MOBILE */
+
+@media(max-width:800px){
+
+    .nav-links{
+        display:none;
+    }
+
+    .features{
+        grid-template-columns:1fr 1fr;
+    }
+
+    .steps{
+        grid-template-columns:1fr 1fr;
+    }
+
+    .compat{
+        grid-template-columns:1fr;
+    }
+
+    .hero{
+        padding-top:60px;
+    }
+}
+
+@media(max-width:500px){
+
+    .features,
+    .steps{
+        grid-template-columns:1fr;
+    }
+
+    .hero h1{
+        font-size:44px;
+    }
+
+    .hero p{
+        font-size:16px;
+    }
+
+    .section{
+        padding:55px 0;
+    }
+
+    .new-price{
+        font-size:30px;
+    }
+}
+
+</style>
+</head>
+
+<body>
+
+
+<!-- ================= NAVIGATION ================= -->
+
+<nav>
+
+<div class="container navbar">
+
+<div class="logo">
+GOLDX PRO
+</div>
+
+<div class="nav-links">
+
+<a href="#features">
+Features
+</a>
+
+<a href="#demo">
+Demo
+</a>
+
+<a href="#how">
+How It Works
+</a>
+
+<a href="#faq">
+FAQ
+</a>
+
+</div>
+
+<a
+class="buy-small"
+href="https://rzp.io/rzp/n8MgnVxr"
+target="_blank"
+rel="noopener">
+
+BUY ₹299
+
+</a>
+
+</div>
+
+</nav>
+
+
+<!-- ================= HERO ================= -->
+
+<section class="hero">
+
+<div class="container">
+
+<div class="badge">
+PROFESSIONAL MT5 EXPERT ADVISOR
+</div>
+
+<h1>
+
+MT5
+<span class="gold">
+XAUUSD
+</span>
+
+<br>
+
+TRADING BOT
+
+</h1>
+
+<p>
+
+Automated trading software for MetaTrader 5,
+designed for XAUUSD (Gold) with trade-management
+and risk-management features.
+
+</p>
+
+
+<div class="buttons">
+
+<a
+class="btn btn-gold"
+href="https://rzp.io/rzp/n8MgnVxr"
+target="_blank"
+rel="noopener">
+
+GET GOLDX PRO – ₹299
+
+</a>
+
+
+<a
+class="btn btn-dark"
+href="#demo">
+
+▶ WATCH DEMO
+
+</a>
+
+</div>
+
+
+<!-- POWER IMAGE -->
+
+<div class="hero-image">
+
+<img
+src="https://i.postimg.cc/FHr5xbX1/file-0000000059608211a7faeb1cff8c22c5.png"
+alt="GOLDX PRO MT5 XAUUSD Trading Bot">
+
+</div>
+
+
+<!-- LAUNCH OFFER -->
+
+<div class="offer-strip">
+
+<div class="offer-label">
+
+LIMITED-TIME LAUNCH OFFER
+
+</div>
+
+<div>
+
+<span class="old-price">
+₹7,999
+</span>
+
+<span class="new-price">
+₹299
+</span>
+
+</div>
+
+<div class="offer-note">
+
+Launch pricing is available for a limited period.
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- ================= DEMO ================= -->
+
+<section
+class="section"
+id="demo">
+
+<div class="container">
+
+<div class="section-title">
+
+<h2>
+REAL BOT DEMO
+</h2>
+
+<p>
+See the software running on MetaTrader 5.
+</p>
+
+</div>
+
+
+<div class="video-box">
+
+<span>
+
+▶ YOUR ACTUAL MT5 / OBS VIDEO WILL GO HERE
+
+</span>
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- ================= FEATURES ================= -->
+
+<section
+class="section"
+id="features">
+
+<div class="container">
+
+<div class="section-title">
+
+<h2>
+KEY FEATURES
+</h2>
+
+<p>
+Built around automated trade management.
+</p>
+
+</div>
+
+
+<div class="features">
+
+
+<div class="card">
+
+<div class="icon">
+⚙️
+</div>
+
+<h3>
+Automated
+</h3>
+
+<p>
+EA-based automated trading on MetaTrader 5.
+</p>
+
+</div>
+
+
+<div class="card">
+
+<div class="icon">
+🛡️
+</div>
+
+<h3>
+Risk Management
+</h3>
+
+<p>
+Risk and trade-management features
+for controlled execution.
+</p>
+
+</div>
+
+
+<div class="card">
+
+<div class="icon">
+📈
+</div>
+
+<h3>
+Smart Trailing
+</h3>
+
+<p>
+Structure-based stop-loss management.
+</p>
+
+</div>
+
+
+<div class="card">
+
+<div class="icon">
+🥇
+</div>
+
+<h3>
+XAUUSD
+</h3>
+
+<p>
+Designed for Gold / XAUUSD on MT5.
+</p>
+
+</div>
+
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- ================= PLATFORM ================= -->
+
+<section class="section">
+
+<div class="container">
+
+<div class="section-title">
+
+<h2>
+PLATFORM & MARKET
+</h2>
+
+</div>
+
+
+<div class="compat">
+
+
+<div class="compat-box">
+
+<h3>
+MetaTrader 5
+</h3>
+
+<p>
+
+The software is designed to run
+as an Expert Advisor inside MetaTrader 5.
+
+</p>
+
+</div>
+
+
+<div class="compat-box">
+
+<h3>
+XAUUSD / Gold
+</h3>
+
+<p>
+
+Primary market shown for this product.
+Broker symbol names and trading conditions
+can vary.
+
+</p>
+
+</div>
+
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- ================= HOW IT WORKS ================= -->
+
+<section
+class="section"
+id="how">
+
+<div class="container">
+
+<div class="section-title">
+
+<h2>
+HOW IT WORKS
+</h2>
+
+<p>
+Simple setup for MT5 users.
+</p>
+
+</div>
+
+
+<div class="steps">
+
+
+<div class="step">
+
+<div class="number">
+1
+</div>
+
+<h3>
+Purchase
+</h3>
+
+<p>
+Complete the payment.
+</p>
+
+</div>
+
+
+<div class="step">
+
+<div class="number">
+2
+</div>
+
+<h3>
+Download
+</h3>
+
+<p>
+Receive the software through
+the delivery system.
+</p>
+
+</div>
+
+
+<div class="step">
+
+<div class="number">
+3
+</div>
+
+<h3>
+Install
+</h3>
+
+<p>
+Install the EA on MetaTrader 5.
+</p>
+
+</div>
+
+
+<div class="step">
+
+<div class="number">
+4
+</div>
+
+<h3>
+Configure
+</h3>
+
+<p>
+Set appropriate risk and
+trading parameters.
+</p>
+
+</div>
+
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- ================= PRICE ================= -->
+
+<section class="section">
+
+<div class="container">
+
+<div class="price-box">
+
+<div class="launch">
+
+LIMITED-TIME LAUNCH OFFER
+
+</div>
+
+
+<div class="regular-price">
+
+Regular Price ₹7,999
+
+</div>
+
+
+<div class="price">
+
+₹299
+
+</div>
+
+
+<div class="launch-price">
+
+LAUNCH PRICE
+
+</div>
+
+
+<p>
+
+<strong>
+GOLDX PRO – MT5 XAUUSD Trading Bot
+</strong>
+
+</p>
+
+
+<ul>
+
+<li>
+✓ MT5 Expert Advisor
+</li>
+
+<li>
+✓ XAUUSD / Gold focus
+</li>
+
+<li>
+✓ Automated trade management
+</li>
+
+<li>
+✓ Risk-management features
+</li>
+
+<li>
+✓ Digital delivery system
+</li>
+
+</ul>
+
+
+<a
+class="btn btn-gold"
+href="https://rzp.io/rzp/n8MgnVxr"
+target="_blank"
+rel="noopener">
+
+BUY GOLDX PRO – ₹299
+
+</a>
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- ================= FAQ ================= -->
+
+<section
+class="section"
+id="faq">
+
+<div class="container">
+
+<div class="section-title">
+
+<h2>
+FAQ
+</h2>
+
+</div>
+
+
+<div class="faq">
+
+
+<details>
+
+<summary>
+Do I need MetaTrader 5?
+</summary>
+
+<p>
+
+Yes. This product is designed
+as an MT5 Expert Advisor.
+
+</p>
+
+</details>
+
+
+<details>
+
+<summary>
+Which market is this designed for?
+</summary>
+
+<p>
+
+The current product page is focused
+on XAUUSD / Gold.
+
+</p>
+
+</details>
+
+
+<details>
+
+<summary>
+Does the bot guarantee profit?
+</summary>
+
+<p>
+
+No. GOLDX PRO does not guarantee
+profits or returns. Trading involves
+financial risk and past performance
+does not guarantee future results.
+
+</p>
+
+</details>
+
+
+<details>
+
+<summary>
+Will I receive the software after payment?
+</summary>
+
+<p>
+
+The final website will use an automatic
+digital-delivery system so successful
+customers can receive their download
+without manual delivery.
+
+</p>
+
+</details>
+
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- ================= RISK ================= -->
+
+<section class="section">
+
+<div class="container">
+
+<div class="risk">
+
+<strong>
+Risk Disclosure
+</strong>
+
+<br><br>
+
+Trading financial markets involves
+substantial risk.
+
+GOLDX PRO does not guarantee profits
+or returns.
+
+Customers are responsible for their
+own trading decisions, broker selection,
+capital and risk settings.
+
+<br><br>
+
+Past performance does not guarantee
+future results.
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- ================= FOOTER ================= -->
+
+<footer>
+
+<div class="container">
+
+<strong>
+GOLDX PRO
+</strong>
+
+<br><br>
+
+MT5 XAUUSD Trading Software
+
+<br><br>
+
+© 2026 GOLDX PRO. All rights reserved.
+
+</div>
+
+</footer>
+
+
+</body>
+</html>
