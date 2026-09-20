@@ -146,16 +146,11 @@ nav{
     color:#080909;
 }
 
-.btn-dark{
-    border:1px solid #555;
-    color:white;
-}
-
 .btn:hover{
     transform:translateY(-2px);
 }
 
-/* POWER IMAGE */
+/* IMAGES */
 
 .hero-image{
     width:100%;
@@ -173,8 +168,6 @@ nav{
     display:block;
 }
 
-/* SECOND PROOF IMAGE */
-
 .proof-image{
     width:100%;
     max-width:1100px;
@@ -191,7 +184,7 @@ nav{
     display:block;
 }
 
-/* PAYMENT WAIT NOTICE */
+/* PAYMENT NOTICE */
 
 .payment-note{
     max-width:900px;
@@ -217,17 +210,16 @@ nav{
 .payment-note p{
     color:#ddd;
     font-size:15px;
-    margin:0;
 }
 
-/* OFFER STRIP */
+/* OFFER + COUNTDOWN */
 
 .offer-strip{
     margin:35px auto 0;
     max-width:760px;
-    padding:18px 20px;
+    padding:22px 20px;
     border:1px solid #f5be2d;
-    border-radius:14px;
+    border-radius:16px;
     background:
     linear-gradient(
         90deg,
@@ -235,14 +227,19 @@ nav{
         #211b0b,
         #16120a
     );
+    box-shadow:0 0 28px rgba(245,190,45,.12);
 }
 
 .offer-label{
     color:#f5be2d;
-    font-size:12px;
+    font-size:13px;
     font-weight:800;
     letter-spacing:2px;
     text-transform:uppercase;
+}
+
+.offer-prices{
+    margin:4px 0;
 }
 
 .old-price{
@@ -254,13 +251,52 @@ nav{
 
 .new-price{
     color:#f5be2d;
-    font-size:36px;
+    font-size:38px;
     font-weight:900;
 }
 
 .offer-note{
     color:#aaa;
     font-size:13px;
+}
+
+.countdown-title{
+    margin-top:16px;
+    color:#fff;
+    font-size:14px;
+    font-weight:700;
+}
+
+.countdown{
+    display:flex;
+    justify-content:center;
+    gap:10px;
+    margin:12px auto 0;
+    flex-wrap:wrap;
+}
+
+.time-box{
+    min-width:82px;
+    padding:10px 8px;
+    border:1px solid #6d5417;
+    border-radius:10px;
+    background:#0c0c0c;
+}
+
+.time-box strong{
+    display:block;
+    color:#f5be2d;
+    font-size:27px;
+    line-height:1;
+}
+
+.time-box span{
+    display:block;
+    color:#999;
+    font-size:10px;
+    text-transform:uppercase;
+    letter-spacing:1px;
+    margin-top:5px;
 }
 
 /* SECTION */
@@ -281,26 +317,6 @@ nav{
 
 .section-title p{
     color:#999;
-}
-
-/* DEMO */
-
-.video-box{
-    max-width:900px;
-    margin:auto;
-    aspect-ratio:16/9;
-    background:#111;
-    border:1px solid #444;
-    border-radius:15px;
-    display:flex;
-    align-items:center;
-    justify-content:center;
-    text-align:center;
-}
-
-.video-box span{
-    color:#f5be2d;
-    font-size:22px;
 }
 
 /* FEATURES */
@@ -536,6 +552,14 @@ footer{
     .new-price{
         font-size:30px;
     }
+
+    .time-box{
+        min-width:70px;
+    }
+
+    .time-box strong{
+        font-size:23px;
+    }
 }
 
 </style>
@@ -543,7 +567,7 @@ footer{
 
 <body>
 
-<!-- ================= NAVIGATION ================= -->
+<!-- NAVIGATION -->
 
 <nav>
 
@@ -557,10 +581,6 @@ GOLDX PRO
 
 <a href="#features">
 Features
-</a>
-
-<a href="#demo">
-Demo
 </a>
 
 <a href="#how">
@@ -588,7 +608,7 @@ BUY ₹299
 </nav>
 
 
-<!-- ================= HERO ================= -->
+<!-- HERO -->
 
 <section class="hero">
 
@@ -632,19 +652,10 @@ GET GOLDX PRO – ₹299
 
 </a>
 
-
-<a
-class="btn btn-dark"
-href="#demo">
-
-▶ WATCH DEMO
-
-</a>
-
 </div>
 
 
-<!-- ================= FIRST IMAGE ================= -->
+<!-- FIRST IMAGE -->
 
 <div class="hero-image">
 
@@ -655,7 +666,7 @@ alt="GOLDX PRO MT5 XAUUSD Trading Bot">
 </div>
 
 
-<!-- ================= SECOND TRADING IMAGE ================= -->
+<!-- SECOND TRADING IMAGE -->
 
 <div class="proof-image">
 
@@ -666,7 +677,7 @@ alt="GOLDX PRO MT5 Trading Result with Entry Stop Loss and Take Profit">
 </div>
 
 
-<!-- ================= PAYMENT NOTICE ================= -->
+<!-- PAYMENT NOTICE -->
 
 <div class="payment-note">
 
@@ -675,27 +686,33 @@ alt="GOLDX PRO MT5 Trading Result with Entry Stop Loss and Take Profit">
 </h3>
 
 <p>
+
 After completing your payment, please do not immediately
 close or cancel the page.
+
 <br><br>
+
 Please wait for the payment process to complete and for
 the automatic WhatsApp redirect.
+
 <br><br>
+
 📲 You will be redirected to WhatsApp after successful payment.
+
 </p>
 
 </div>
 
 
-<!-- ================= LAUNCH OFFER ================= -->
+<!-- 15-DAY OFFER -->
 
 <div class="offer-strip">
 
 <div class="offer-label">
-LIMITED-TIME LAUNCH OFFER
+🔥 15-DAY LAUNCH OFFER CYCLE
 </div>
 
-<div>
+<div class="offer-prices">
 
 <span class="old-price">
 ₹7,999
@@ -708,42 +725,38 @@ LIMITED-TIME LAUNCH OFFER
 </div>
 
 <div class="offer-note">
-Launch pricing is available for a limited period.
+Current offer cycle renews every 15 days.
+</div>
+
+<div class="countdown-title">
+⏳ CURRENT OFFER CYCLE ENDS IN
+</div>
+
+<div
+class="countdown"
+aria-live="polite">
+
+<div class="time-box">
+<strong id="days">15</strong>
+<span>Days</span>
+</div>
+
+<div class="time-box">
+<strong id="hours">00</strong>
+<span>Hours</span>
+</div>
+
+<div class="time-box">
+<strong id="minutes">00</strong>
+<span>Minutes</span>
+</div>
+
+<div class="time-box">
+<strong id="seconds">00</strong>
+<span>Seconds</span>
 </div>
 
 </div>
-
-</div>
-
-</section>
-
-
-<!-- ================= DEMO ================= -->
-
-<section
-class="section"
-id="demo">
-
-<div class="container">
-
-<div class="section-title">
-
-<h2>
-REAL BOT DEMO
-</h2>
-
-<p>
-See the software running on MetaTrader 5.
-</p>
-
-</div>
-
-
-<div class="video-box">
-
-<span>
-▶ YOUR ACTUAL MT5 / OBS VIDEO WILL GO HERE
-</span>
 
 </div>
 
@@ -752,7 +765,7 @@ See the software running on MetaTrader 5.
 </section>
 
 
-<!-- ================= FEATURES ================= -->
+<!-- FEATURES -->
 
 <section
 class="section"
@@ -852,7 +865,7 @@ Designed for Gold / XAUUSD on MT5.
 </section>
 
 
-<!-- ================= PLATFORM ================= -->
+<!-- PLATFORM -->
 
 <section class="section">
 
@@ -906,7 +919,7 @@ can vary.
 </section>
 
 
-<!-- ================= HOW IT WORKS ================= -->
+<!-- HOW IT WORKS -->
 
 <section
 class="section"
@@ -1008,7 +1021,7 @@ on MetaTrader 5.
 </section>
 
 
-<!-- ================= PRICE ================= -->
+<!-- PRICE -->
 
 <section class="section">
 
@@ -1017,24 +1030,20 @@ on MetaTrader 5.
 <div class="price-box">
 
 <div class="launch">
-LIMITED-TIME LAUNCH OFFER
+15-DAY LAUNCH OFFER CYCLE
 </div>
-
 
 <div class="regular-price">
 Regular Price ₹7,999
 </div>
 
-
 <div class="price">
 ₹299
 </div>
 
-
 <div class="launch-price">
-LAUNCH PRICE
+CURRENT LAUNCH PRICE
 </div>
-
 
 <p>
 
@@ -1087,7 +1096,7 @@ BUY GOLDX PRO – ₹299
 </section>
 
 
-<!-- ================= FAQ ================= -->
+<!-- FAQ -->
 
 <section
 class="section"
@@ -1114,8 +1123,7 @@ Do I need MetaTrader 5?
 </summary>
 
 <p>
-Yes. This product is designed
-as an MT5 Expert Advisor.
+Yes. This product is designed as an MT5 Expert Advisor.
 </p>
 
 </details>
@@ -1128,8 +1136,7 @@ Which market is this designed for?
 </summary>
 
 <p>
-The current product page is focused
-on XAUUSD / Gold.
+The current product page is focused on XAUUSD / Gold.
 </p>
 
 </details>
@@ -1142,9 +1149,8 @@ Does the bot guarantee profit?
 </summary>
 
 <p>
-No. GOLDX PRO does not guarantee
-profits or returns. Trading involves
-financial risk and past performance
+No. GOLDX PRO does not guarantee profits or returns.
+Trading involves financial risk and past performance
 does not guarantee future results.
 </p>
 
@@ -1173,7 +1179,7 @@ WhatsApp for software delivery.
 </section>
 
 
-<!-- ================= RISK ================= -->
+<!-- RISK -->
 
 <section class="section">
 
@@ -1187,20 +1193,16 @@ Risk Disclosure
 
 <br><br>
 
-Trading financial markets involves
-substantial risk.
+Trading financial markets involves substantial risk.
 
-GOLDX PRO does not guarantee profits
-or returns.
+GOLDX PRO does not guarantee profits or returns.
 
-Customers are responsible for their
-own trading decisions, broker selection,
-capital and risk settings.
+Customers are responsible for their own trading decisions,
+broker selection, capital and risk settings.
 
 <br><br>
 
-Past performance does not guarantee
-future results.
+Past performance does not guarantee future results.
 
 </div>
 
@@ -1209,7 +1211,7 @@ future results.
 </section>
 
 
-<!-- ================= FOOTER ================= -->
+<!-- FOOTER -->
 
 <footer>
 
@@ -1231,6 +1233,82 @@ MT5 XAUUSD Trading Software
 
 </footer>
 
+
+<!-- 15-DAY RECURRING COUNTDOWN -->
+
+<script>
+
+const CYCLE_START =
+new Date("2026-09-20T00:00:00+05:30").getTime();
+
+const CYCLE_LENGTH =
+15 * 24 * 60 * 60 * 1000;
+
+
+function updateCountdown(){
+
+    const now = Date.now();
+
+    let remaining;
+
+    if(now < CYCLE_START){
+
+        remaining = CYCLE_START - now;
+
+    }else{
+
+        remaining =
+        CYCLE_LENGTH -
+        ((now - CYCLE_START) % CYCLE_LENGTH);
+
+    }
+
+    renderTime(remaining);
+}
+
+
+function renderTime(ms){
+
+    const totalSeconds =
+    Math.max(0, Math.floor(ms / 1000));
+
+    const days =
+    Math.floor(totalSeconds / 86400);
+
+    const hours =
+    Math.floor(
+        (totalSeconds % 86400) / 3600
+    );
+
+    const minutes =
+    Math.floor(
+        (totalSeconds % 3600) / 60
+    );
+
+    const seconds =
+    totalSeconds % 60;
+
+
+    document.getElementById("days").textContent =
+    String(days).padStart(2,"0");
+
+    document.getElementById("hours").textContent =
+    String(hours).padStart(2,"0");
+
+    document.getElementById("minutes").textContent =
+    String(minutes).padStart(2,"0");
+
+    document.getElementById("seconds").textContent =
+    String(seconds).padStart(2,"0");
+
+}
+
+
+updateCountdown();
+
+setInterval(updateCountdown,1000);
+
+</script>
 
 </body>
 </html>
